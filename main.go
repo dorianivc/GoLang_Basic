@@ -5,26 +5,30 @@ import (
 )
 
 func main() {
-	//Defer -- Ejecuta la ultima funcion antes de que el programa muera
-	//Funciona para cerrar archivos o conexiones a bases de datos
+	//Arrays
+	var array[4] int
+	array[0]=1
+	array[1]=2
+	fmt.Println(array, len(array), cap(array))
 
-	defer fmt.Println("Hola")
-	fmt.Println("Mundo")
+	//Slice
+	slice:= []int{0,1,2,3,4,5,6,7}
+	fmt.Println(slice, len(slice), cap(slice))
 
-	//Continue y Break
+	//Metodos en el slice
+	fmt.Println(slice[0])
+	fmt.Println(slice[:3])
+	fmt.Println(slice[2:4])
+	fmt.Println(slice[4:])
 
-	for i:=0; i<10; i++{
-		fmt.Println(i)
+	// Append
 
-		//Continue
-		if i==2{
-			fmt.Println("Es 2")
-			continue
-		}
+	slice=append(slice, 7)
+	fmt.Println(slice)
 
-		if i==7{
-			fmt.Println("Break, Bye")
-			break
-		}
-	}
+	//Append nueva lista
+	newSlice:= []int{8,9,10}
+	slice= append(slice, newSlice...)
+	fmt.Println(slice)
+	
 }
