@@ -2,40 +2,28 @@ package main
 
 import (
 	"fmt"
+	"sync"
+	"time"
 )
 
-type figuras2D interface{
-	area() float64
+func say(text string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println(text)
 }
 
-type cuadradro struct{
-	base float64
-}
-type rectangulo struct{
-	base float64
-	altura float64
-}
-
-func (c cuadradro) area() float64{
-	return c.base* c.base
-}
-
-func (r rectangulo) area() float64{
-	return r.base * r.altura
-}
-
-func calculate(f figuras2D){
-	fmt.Println("Area: ", f.area())
-}
 func main() {
-	myCuadrado:= cuadradro{base: 4}
-	myRectamgulo:= rectangulo{base: 4, altura: 7}
-	
-	calculate(myCuadrado)
-	calculate(myRectamgulo)
+	var wg sync.WaitGroup
 
-	//Lista de interfaces
-	myInterface:= []interface{/*Interfaz Vacia*/}{"Hola", 12, 4.77}
-	fmt.Println(myInterface...)
+	fmt.Println("Hello")
+	wg.Add(1)
 
+	go say("World", &wg)
+	wg.Wait()
+
+	//Funcion Anonima
+	go func(text string){
+		fmt.Println(text)
+	}("Adios!")
+
+	time.Sleep((time.Second*1))
 }
