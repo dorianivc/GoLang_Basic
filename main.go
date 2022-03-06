@@ -1,17 +1,42 @@
 package main
+
 import (
 	"fmt"
-	"mypackage"
 )
+
+type pc struct{
+	ram int
+	disk int
+	brand string
+
+}
+
+func (myPC pc)ping(){
+	fmt.Println(myPC.brand, "Pong")
+
+}
+
+func(myPC *pc) duplicateRam(){
+	myPC.ram= myPC.ram*2
+
+}
 
 func main() {
 
-var myCar mypackage.CarPublic
-myCar.Brand="Ferrari"
-myCar.Year=2020
-fmt.Println(myCar)
+	a := 50
+	b := &a
 
-mypackage.PrintMessage("Hola Platzi")
-//Error por ser privado
-mypackage.printMessage1("Hola Platzi")
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(*b)
+
+	*b=100
+	fmt.Println(a)
+	myPC:= pc{ram:32, disk: 1000, brand: "Lenovo"}
+	fmt.Println(myPC)
+	myPC.ping()
+	myPC.duplicateRam()
+	fmt.Println(myPC)
+
+
 }
