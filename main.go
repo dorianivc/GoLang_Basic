@@ -1,22 +1,17 @@
 package main
-
 import (
 	"fmt"
+	"mypackage"
 )
-type car struct{
-	brand string
-	year int
-
-}
 
 func main() {
-myCar:= car{brand:"Ford", year:2020}
+
+var myCar mypackage.CarPublic
+myCar.Brand="Ferrari"
+myCar.Year=2020
 fmt.Println(myCar)
 
-//Otra manera
-
-var otherCar car
-otherCar.brand="Ferrari"
-fmt.Println(otherCar)
-
+mypackage.PrintMessage("Hola Platzi")
+//Error por ser privado
+mypackage.printMessage1("Hola Platzi")
 }
