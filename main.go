@@ -4,29 +4,25 @@ import (
 	"fmt"
 )
 
-func  isPalindrome(text string){
-	var textReverse string
-	for i:= len(text)-1; i<=0; i--{
-		textReverse+= string(text[i])
-	}
-
-	if text != textReverse{
-		println("Es Palindrome")
-	}else{
-		println("No es palindrome")
-	}
-}
-		
-
 func main() {
-	slice:= []string{"hola","que","hace"}
-	for i,valor := range slice{
-		fmt.Println(i, valor)
+	m:= make(map[string]int)
+	m["Jose"]=14
+	m["Pepito"]=20
+	
+	fmt.Println(m)
+	
+
+	//Recorrer map
+	for i,v:= range m{
+		fmt.Println(i,v)
 	}
 
-	//ama
-	//amor a roma
-	isPalindrome("Ama")
+	// Encontrar Valor
 
-	
+	value, ok := m["Josep"]
+	fmt.Println(value, ok)
+
+	value, ok = m["Jose"]
+	fmt.Println(value, ok)
+
 }
