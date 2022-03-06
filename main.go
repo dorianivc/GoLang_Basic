@@ -10,6 +10,9 @@ type pc struct{
 	brand string
 
 }
+func (myPC pc) String() string{
+	return fmt.Sprintf("Tengo %d GB de ram, %d GB de Disco y es una %s", myPC.ram, myPC.disk, myPC.brand)
+}
 
 func (myPC pc)ping(){
 	fmt.Println(myPC.brand, "Pong")
