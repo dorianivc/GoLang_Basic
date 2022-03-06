@@ -4,31 +4,29 @@ import (
 	"fmt"
 )
 
+func  isPalindrome(text string){
+	var textReverse string
+	for i:= len(text)-1; i<=0; i--{
+		textReverse+= string(text[i])
+	}
+
+	if text != textReverse{
+		println("Es Palindrome")
+	}else{
+		println("No es palindrome")
+	}
+}
+		
+
 func main() {
-	//Arrays
-	var array[4] int
-	array[0]=1
-	array[1]=2
-	fmt.Println(array, len(array), cap(array))
+	slice:= []string{"hola","que","hace"}
+	for i,valor := range slice{
+		fmt.Println(i, valor)
+	}
 
-	//Slice
-	slice:= []int{0,1,2,3,4,5,6,7}
-	fmt.Println(slice, len(slice), cap(slice))
+	//ama
+	//amor a roma
+	isPalindrome("Ama")
 
-	//Metodos en el slice
-	fmt.Println(slice[0])
-	fmt.Println(slice[:3])
-	fmt.Println(slice[2:4])
-	fmt.Println(slice[4:])
-
-	// Append
-
-	slice=append(slice, 7)
-	fmt.Println(slice)
-
-	//Append nueva lista
-	newSlice:= []int{8,9,10}
-	slice= append(slice, newSlice...)
-	fmt.Println(slice)
 	
 }
