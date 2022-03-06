@@ -4,42 +4,34 @@ import (
 	"fmt"
 )
 
-type pc struct{
-	ram int
-	disk int
-	brand string
-
-}
-func (myPC pc) String() string{
-	return fmt.Sprintf("Tengo %d GB de ram, %d GB de Disco y es una %s", myPC.ram, myPC.disk, myPC.brand)
+type figuras2D interface{
+	area() float64
 }
 
-func (myPC pc)ping(){
-	fmt.Println(myPC.brand, "Pong")
-
+type cuadradro struct{
+	base float64
+}
+type rectangulo struct{
+	base float64
+	altura float64
 }
 
-func(myPC *pc) duplicateRam(){
-	myPC.ram= myPC.ram*2
-
+func (c cuadradro) area() float64{
+	return c.base* c.base
 }
 
+func (r rectangulo) area() float64{
+	return r.base * r.altura
+}
+
+func calculate(f figuras2D){
+	fmt.Println("Area: ", f.area())
+}
 func main() {
-
-	a := 50
-	b := &a
-
-	fmt.Println(a)
-	fmt.Println(b)
-	fmt.Println(*b)
-
-	*b=100
-	fmt.Println(a)
-	myPC:= pc{ram:32, disk: 1000, brand: "Lenovo"}
-	fmt.Println(myPC)
-	myPC.ping()
-	myPC.duplicateRam()
-	fmt.Println(myPC)
-
+	myCuadrado:= cuadradro{base: 4}
+	myRectamgulo:= rectangulo{base: 4, altura: 7}
+	
+	calculate(myCuadrado)
+	calculate(myRectamgulo)
 
 }
