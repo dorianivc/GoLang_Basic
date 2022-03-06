@@ -2,28 +2,26 @@ package main
 
 import "fmt"
 
-func normalFunction(message string) {
-	fmt.Println(message)
-}
-
-func tripleArgument(a, b int, c string) {
-	fmt.Println(a, b, c)
-}
-
-func returnValue(a int) int {
-	return a * 2
-}
-
-func doubleReturn(a int) (c, d int) {
-	return a, a * 2
-}
-
 func main() {
-	normalFunction("Hola mundo!")
-	tripleArgument(1, 2, "Hola")
-	value := returnValue(2)
-	fmt.Println(value)
-	value1, value2 := doubleReturn(2)
-	fmt.Println("Value1 y Value2: ", value1, value2)
+	// For Condicional
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
 
+	fmt.Println("Nuevo Ciclo")
+
+	//For while
+	counter := 0
+	for counter < 10 {
+		fmt.Println(counter)
+		counter++
+
+	}
+
+	//For forever
+	counterForever:=0
+	for{
+		fmt.Println(counterForever)
+		counterForever++
+	}
 }
