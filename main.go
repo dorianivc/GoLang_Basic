@@ -35,7 +35,7 @@ func main() {
 	calculate(myRectamgulo)
 
 	//Lista de interfaces
-	myInterface:= []interface{}{"Hola", 12, 4.77}
+	myInterface:= []interface{/*Interfaz Vacia*/}{"Hola", 12, 4.77}
 	fmt.Println(myInterface...)
 
 }
